@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch Party</title>
+    <link rel="shortcut icon" href="/Users/andreayoung/Development/unit-6/unit-6-project/images/circle-abstract-logo-png.png" type="image/x-icon">
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
+</head>
+<body>
+    <div class="header">
+        <a href="#default" class="logo">
+            <img src="/Users/andreayoung/Development/unit-6/unit-6-project/images/circle-abstract-logo-png.png">
+        </a> 
+        <div class="header-right">
+            <a href="#none">D R E A</a>
+            <a href="#none">J A R R I T</a>
+        </div>
+    </div>
+
+    <div id="greeting">
+        <h1>WELCOME TO WATCH PARTY</h1>
+        <h4>You can search for a movie, anime, or music choice below</h4>
+    </div>
+
+    <label for="inp" class="inp">
+        <form id="search-form">
+            <input type="text" id="inp" placeholder="Type here..." pattern=".{6,}" required>
+                <svg width="280px" height="18px" viewBox="0 0 280 18" class="border">
+                    <path d="M0,12 L223.166144,12 C217.241379,12 217.899687,12 225.141066,12 C236.003135,12 241.9279,12 249.827586,12 C257.727273,12 264.639498,12 274.514107,12 C281.097179,12 281.755486,12 276.489028,12"></path>
+                </svg>
+            <svg width="14px" height="12px" viewBox="0 0 14 12" class="check">
+                <path d="M1 7 5.5 11 L13 1"></path>
+            </svg>
+            <input type="button" value="Enter">
+        </form>
+    </label>
+
+    <div class="row" id="pop-category-list">
+        <div class="column">
+            <h4 id="movie">#1 Movie</h4>
+            <img src="https://cdn.dribbble.com/users/179241/screenshots/3703338/chris-fernandez-spiderman-homecoming-2_1x.png">
+        </div>
+        <div class="column">
+            <h4 id="anime">#1 Anime</h4>
+            <img src="https://cdn.dribbble.com/users/179241/screenshots/3706561/chris-fernandez-new-dad-8_1x.png">
+        </div>
+        <div class="column">
+            <h4 id="music">#1 Song</h4>
+            <img src="https://cdn.dribbble.com/users/179241/screenshots/3439615/chris-fernandez-screwball-3_1x.png">
+        </div>
+    </div>
+</body>
+</html>
