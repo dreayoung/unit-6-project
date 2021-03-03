@@ -3,23 +3,37 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log('hey')
 
     let form = document.getElementById("search-form")
-    form.addEventListener("submit", tester)
+    form.addEventListener("submit", search)
 })
 
 
-function tester(e){
+function search(e){
     e.preventDefault()
-    document.getElementById("search-form").reset()
-
-    // get value of input text and pass it into searchAPI()
-    
-    searchAPI()
+    let input = document.getElementById("inp").value
+    fetch(`https://api.jikan.moe/v3/search/anime?q=${input}`)
+        .then(response => response.json())
+        .then(data => {
+            addTitles(data.results)
+        })
+    //document.getElementById("search-form").reset()
 }
 
-function searchAPI(){
+function addTitles(obj){
     document.getElementById("pop-category-list").remove()
     document.getElementById("greeting").remove()
-
+    for(let i = 0; i < 10; i++){
+        let newContent = document.createElement("div")
+        newContent.style.display = "flex"
+        newContent.innerHTML = `
+        <img width="auto" height="200px" src=${obj[i].image_url}/>
+        <div>
+        <h2>${obj[i].title}</h2> <span>${obj[i].score}</span>
+        <h4>${obj[i].synopsis}</h4>
+        <div>
+        `
+        console.log(obj[i].title)
+        document.querySelector("body").append(newContent)
+    }
      // fetch API
 }
 
