@@ -4,7 +4,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let form = document.getElementById("search-form")
     form.addEventListener("submit", tester)
+
+    fetch('https://api.jikan.moe/v3/anime/1').then(response => response.json())
+    .then(data => popAnime(data))
 })
+
+function popAnime(obj){
+    let anime = document.getElementById("pop-anime-img")
+    anime.src = obj.image_url
+}
 
 
 function tester(e){
