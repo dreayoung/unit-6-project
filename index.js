@@ -13,6 +13,10 @@ function popAnime(obj){
 }
 
 function search(e){
+  if(document.querySelector('input[name="selection"]:checked') === null){
+    e.preventDefault()
+    alert("Please Select Where to Search")
+  }
   if(document.querySelector('input[name="selection"]:checked').value === "anime"){
       e.preventDefault()
       let input = document.getElementById("inp").value
@@ -24,29 +28,35 @@ function search(e){
   } 
   if(document.querySelector('input[name="selection"]:checked').value === "movie"){
     e.preventDefault()
-    console.log("not made yet")
+    let input = document.getElementById("inp").value
+    fetch(`https://api.themoviedb.org/3/search/movie?api_key=bb90a4dd7b57f36e2474a82d40bd5bf8&language=en-US&query=${input}`)
+      .then(response => response.json())
+      .then(data => {
+        data.results.forEach(titles => {
+          console.log(titles.title)
+        })
+      })
   }
   if(document.querySelector('input[name="selection"]:checked').value === "book"){
     e.preventDefault()
     console.log("not made yet")
   }
-  if(document.querySelector('input[name="selection"]:checked').value === ""){
-    e.preventDefault()
-    alert("Please Select Type of Search")
-  }
-      //document.getElementById("search-form").reset()
 }
 
 function addTitles(obj){
     console.log(obj)
-    document.getElementById("pop-category-list").remove()
-    document.getElementById("greeting").remove()
-
+    if(document.querySelectorAll(".card")){
+      document.querySelectorAll(".card").forEach(e => e.remove())
+    }
+    document.getElementById("inp").value = ""
+    if(document.getElementById("greeting")){
+      document.getElementById("pop-category-list").remove()
+      document.getElementById("greeting").remove()      
+    }
     obj.forEach(item => {
         let newContent = document.createElement("div")
         newContent.classList.add("card")
         newContent.style.display = "flex"
-
         newContent.innerHTML = `
         <div class='card_left'>
         <img src='${item.image_url}'>
