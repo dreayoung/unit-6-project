@@ -26,6 +26,10 @@
 
     <label for="inp" class="inp">
         <form id="search-form">
+            <input type="radio" name="selection" value="movie"><span>Movie</span>
+            <input type="radio" name="selection" value="anime"><span>anime</span>
+            <input type="radio" name="selection" value="book" id="book-search"><span>book</span>
+            <br>
             <input type="text" id="inp" placeholder="Type here..." pattern=".{6,}" required>
                 <svg width="280px" height="18px" viewBox="0 0 280 18" class="border">
                     <path d="M0,12 L223.166144,12 C217.241379,12 217.899687,12 225.141066,12 C236.003135,12 241.9279,12 249.827586,12 C257.727273,12 264.639498,12 274.514107,12 C281.097179,12 281.755486,12 276.489028,12"></path>
@@ -36,12 +40,13 @@
             <input type="button" value="press enter for results">
         </form>
     </label>
-    <form>
+
+    <!-- <form id="filter">
         <input type="radio" name="selection" value="movie"><span>Movie</span>
         <input type="radio" name="selection" value="anime"><span>anime</span>
-        <input type="radio" name="selection" value="book"><span>book</span>
+        <input type="radio" name="selection" value="book" id="book-search"><span>book</span>
         <button type="submit">submit</button>
-    </form>
+    </form> -->
 <br>
     <div class="row" id="pop-category-list">
         <div class="column">

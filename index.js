@@ -1,7 +1,6 @@
 let booksAPI = 'AIzaSyCQ81WFQIGRAWpP5TIgm_7s5Em6Jpwk6N4'
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log('hey')
 
     let form = document.getElementById("search-form")
     form.addEventListener("submit", search)
@@ -20,6 +19,13 @@ document.addEventListener("DOMContentLoaded", () => {
 //   recBook.src = books.items[0].volumeInfo.imageLinks.thumbnail
 
 // }
+
+function bookSearch(e){
+  e.preventDefault()
+  let selected = document.getElementById("book-search").value
+
+
+}
 
 function popAnime(obj){
     let anime = document.getElementById("pop-anime-img")

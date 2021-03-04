@@ -103,7 +103,7 @@ body {
 
 /* ------------- search */
 
-#greeting {
+/* #greeting {
     text-align: center;
     padding-top: 30px;
 }
@@ -125,7 +125,11 @@ body {
     font-family: Avenir;
     -webkit-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
-    /* overflow: hidden; */
+    /* overflow: hidden; 
+  }
+/* 
+  #filter {
+    position: relative;
   }
 
 .inp {
@@ -223,7 +227,7 @@ body {
       d: path("M0,12 L226,12 C220,12 220.666667,12 228,12 C239,12 245,17 253,17 C261,17 268,12 278,12 C284.666667,12 285.333333,12 280,12");
     }
   }
-  
+   */
 
 /* searched cards *************/
 
