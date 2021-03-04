@@ -1,10 +1,25 @@
+let booksAPI = 'AIzaSyCQ81WFQIGRAWpP5TIgm_7s5Em6Jpwk6N4'
 
 document.addEventListener("DOMContentLoaded", () => {
     console.log('hey')
 
     let form = document.getElementById("search-form")
     form.addEventListener("submit", search)
+
+    // fetch(`https://www.googleapis.com/books/v1/volumes?q=colorpurple&key=${booksAPI}`)
+    // .then(response => response.json())
+    // .then(data => bookRecomm(data))
+
 })
+
+// function bookRecomm(books){
+//   let recBook = document.getElementById("recommended-book")
+//   let book = document.getElementById("book")
+
+//   book.innerText = books.items[0].volumeInfo.title
+//   recBook.src = books.items[0].volumeInfo.imageLinks.thumbnail
+
+// }
 
 function popAnime(obj){
     let anime = document.getElementById("pop-anime-img")
