@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let form = document.getElementById("search-form")
     form.addEventListener("submit", search)
+    
 })
 
 function popAnime(obj){
@@ -11,16 +12,29 @@ function popAnime(obj){
     anime.src = obj.image_url
 }
 
-
 function search(e){
+  if(document.querySelector('input[name="selection"]:checked').value === "anime"){
+      e.preventDefault()
+      let input = document.getElementById("inp").value
+      fetch(`https://api.jikan.moe/v3/search/anime?q=${input}`)
+          .then(response => response.json())
+          .then(data => {
+              addTitles(data.results)
+          })
+  } 
+  if(document.querySelector('input[name="selection"]:checked').value === "movie"){
     e.preventDefault()
-    let input = document.getElementById("inp").value
-    fetch(`https://api.jikan.moe/v3/search/anime?q=${input}`)
-        .then(response => response.json())
-        .then(data => {
-            addTitles(data.results)
-        })
-    //document.getElementById("search-form").reset()
+    console.log("not made yet")
+  }
+  if(document.querySelector('input[name="selection"]:checked').value === "book"){
+    e.preventDefault()
+    console.log("not made yet")
+  }
+  if(document.querySelector('input[name="selection"]:checked').value === ""){
+    e.preventDefault()
+    alert("Please Select Type of Search")
+  }
+      //document.getElementById("search-form").reset()
 }
 
 function addTitles(obj){
@@ -58,13 +72,9 @@ function addTitles(obj){
       </div>
       <br>
         `
-        // console.log(item.title)
         document.querySelector("body").append(newContent)
     })
        
 }
 
-function searchResults(){
-  // manipulate the DOM
 
-}

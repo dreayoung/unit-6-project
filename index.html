@@ -23,7 +23,13 @@
         <h1>WELCOME TO WATCH PARTY</h1>
         <h4>You can search for a movie, anime, or music choice below</h4>
     </div>
-
+    <div id="type">
+        <form id="type-form">
+            <input type="radio" name="selection" value="movie"><span>Movie</span>
+            <input type="radio" name="selection" value="anime"><span>Anime</span>
+            <input type="radio" name="selection" value="book"><span>Book</span>
+        </form>
+    </div>
     <label for="inp" class="inp">
         <form id="search-form">
             <input type="text" id="inp" placeholder="Type here..." pattern=".{6,}" required>
@@ -36,12 +42,6 @@
             <input type="button" value="press enter for results">
         </form>
     </label>
-    <form>
-        <input type="radio" name="selection" value="movie"><span>Movie</span>
-        <input type="radio" name="selection" value="anime"><span>anime</span>
-        <input type="radio" name="selection" value="book"><span>book</span>
-        <button type="submit">submit</button>
-    </form>
 <br>
     <div class="row" id="pop-category-list">
         <div class="column">
