@@ -1,6 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Lobster&family=Luckiest+Guy&display=swap');
 
-* {box-sizing: border-box;}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  display: grid;
+  font-family: Avenir;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  /* overflow: hidden; */
+}
 
 .header img {
     width: 3rem;
@@ -39,11 +51,6 @@
     clear: both;
     display: table;
   }
-
-body { 
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
 
 .header {
   overflow: hidden;
@@ -119,16 +126,9 @@ body {
 #greeting h4 {
    font-family: 'Lobster';
 }
-
-body {
-    height: 100%;
-  }
-  body {
-    display: grid;
-    font-family: Avenir;
-    -webkit-text-size-adjust: 100%;
-    -webkit-font-smoothing: antialiased;
-    /* overflow: hidden; */
+ 
+  #filter {
+    position: relative;
   }
 
 .inp {
@@ -226,16 +226,13 @@ body {
       d: path("M0,12 L226,12 C220,12 220.666667,12 228,12 C239,12 245,17 253,17 C261,17 268,12 278,12 C284.666667,12 285.333333,12 280,12");
     }
   }
-  
+   */
 
 /* searched cards *************/
 
-@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
-@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
-
-body .card {
-  width: 800px;
-  height: 400px;
+.card {
+  width: 500px;
+  height: 100px;
   background: transparent;
   /* position: absolute; */
   left: 0;
@@ -251,14 +248,14 @@ body .card {
 }
 
 
-body .card_left {
+.card_left {
   width: 40%;
   height: 400px;
   float: left;
   overflow: hidden;
   background: transparent;
 }
-body .card_left img {
+.card_left img {
   width: 100%;
   height: auto;
   border-radius: 10px 0 0 10px;
@@ -266,7 +263,7 @@ body .card_left img {
   -moz-border-radius: 10px 0 0 10px;
   position: relative;
 }
-body .card_right {
+.card_right {
   width: 60%;
   float: left;
   background: #000000;
@@ -275,9 +272,9 @@ body .card_right {
   -webkit-border-radius: 0 10px 10px 0;
   -moz-border-radius: 0 10px 10px 0;
 }
-body .card_right h1 {
+.card_right h1 {
   color: white;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Luckiest Guy';
   font-weight: 400;
   text-align: left;
   font-size: 40px;
@@ -285,88 +282,44 @@ body .card_right h1 {
   padding: 0 0 0 40px;
   letter-spacing: 1px;
 }
-body .card_right__details ul {
+.card_right__details ul {
   list-style-type: none;
   padding: 0 0 0 40px;
   margin: 10px 0 0 0;
 }
-body .card_right__details ul li {
+.card_right__details ul li {
   display: inline;
   color: #e3e3e3;
-  font-family: "Montserrat", sans-serif;
+  font-family:'Amatic SC';
   font-weight: 400;
   font-size: 14px;
   padding: 0 40px 0 0;
 }
-body .card_right__rating__stars {
-  position: relative;
-  right: 160px;
-  margin: 10px 0 10px 0;
-  /***** CSS Magic to Highlight Stars on Hover *****/
-  /* hover previous stars in list */
-}
-body .card_right__rating__stars fieldset,
-body .card_right__rating__stars label {
-  margin: 0;
-  padding: 0;
-}
-body .card_right__rating__stars .rating {
-  border: none;
-}
-body .card_right__rating__stars .rating > input {
-  display: none;
-}
-body .card_right__rating__stars .rating > label:before {
-  margin: 5px;
-  font-size: 1.25em;
-  display: inline-block;
-  content: "";
-  font-family: FontAwesome;
-}
-body .card_right__rating__stars .rating > .half:before {
-  content: "";
-  position: absolute;
-}
-body .card_right__rating__stars .rating > label {
-  color: #ddd;
-  float: right;
-}
-body .card_right__rating__stars .rating > input:checked ~ label,
-body .card_right__rating__stars .rating:not(:checked) > label:hover,
-body .card_right__rating__stars .rating:not(:checked) > label:hover ~ label {
-  color: #ffd700;
-}
-body .card_right__rating__stars .rating > input:checked + label:hover,
-body .card_right__rating__stars .rating > input:checked ~ label:hover,
-body .card_right__rating__stars .rating > label:hover ~ input:checked ~ label,
-body .card_right__rating__stars .rating > input:checked ~ label:hover ~ label {
-  color: #ffed85;
-}
-body .card_right__review p {
+.card_right__review p {
   color: white;
-  font-family: "Montserrat", sans-serif;
+  font-family:'Amatic SC';
   font-size: 12px;
   padding: 0 40px 0 40px;
   letter-spacing: 1px;
   margin: 10px 0 10px 0;
   line-height: 20px;
 }
-body .card_right__review a {
+.card_right__review a {
   text-decoration: none;
-  font-family: "Montserrat", sans-serif;
+  font-family:'Amatic SC';
   font-size: 14px;
   padding: 0 0 0 40px;
   color: #ffda00;
   margin: 0;
 }
-body .card_right__button {
+.card_right__button {
   padding: 0 0 0 40px;
   margin: 30px 0 0 0;
 }
-body .card_right__button a {
+.card_right__button a {
   color: #ffda00;
   text-decoration: none;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Luckiest Guy", sans-serif;
   border: 2px solid #ffda00;
   padding: 10px 10px 10px 40px;
   font-size: 12px;
@@ -378,7 +331,7 @@ body .card_right__button a {
   transition-property: all;
   transition-duration: 0.5s;
 }
-body .card_right__button a:hover {
+.card_right__button a:hover {
   color: #000000;
   background-color: #ffda00;
   background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/343086/rFQ5dHA.png);

@@ -1,11 +1,16 @@
+let booksAPI = 'AIzaSyCQ81WFQIGRAWpP5TIgm_7s5Em6Jpwk6N4'
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log('hey')
 
     let form = document.getElementById("search-form")
     form.addEventListener("submit", search)
     
 })
+
+function bookSearch(e){
+  e.preventDefault()
+  let selected = document.getElementById("book-search").value
+}
 
 function popAnime(obj){
     let anime = document.getElementById("pop-anime-img")
@@ -39,8 +44,52 @@ function search(e){
   }
   if(document.querySelector('input[name="selection"]:checked').value === "book"){
     e.preventDefault()
-    console.log("not made yet")
+    let input = document.getElementById("inp").value
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=${input}&key=${booksAPI}`)
+        .then(response => response.json())
+        .then(data => {
+            bookCards(data.items)
+            // console.log(data.items[0])
+        })
   }
+}
+
+function bookCards(obj){
+  document.getElementById("pop-category-list").remove()
+  document.getElementById("greeting").remove()
+
+  obj.forEach(book => {
+    let newContent = document.createElement("div")
+    newContent.classList.add("card")
+    newContent.style.display = "flex"
+
+    newContent.innerHTML = `
+    <div class='card_left'>
+    <img src='${book.volumeInfo.imageLinks.thumbnail}'>
+  </div>
+  <div class='card_right'>
+    <h1>${book.volumeInfo.title}</h1>
+    <div class='card_right__details'>
+      <ul>
+        <li>Categories: ${book.volumeInfo.categories}</li>
+        <li>Ratings: ${book.volumeInfo.averageRating}</li>
+        <li>Author: ${book.volumeInfo.authors}</li>
+      </ul>
+      <div class='card_right__rating'>
+      </div>
+      <div class='card_right__review'>
+        <p>${book.volumeInfo.description}</p>
+        <a href='' target='_blank'>Read more</a>
+      </div>
+      <div class='card_right__button'>
+        <a href='' target='_blank'>WATCH TRAILER</a>
+      </div>
+    </div>
+  </div>
+  <br>
+    `
+    document.querySelector("body").append(newContent)
+})
 }
 
 function addTitles(obj){
