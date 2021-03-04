@@ -1,5 +1,5 @@
-let booksAPI = 'AIzaSyCQ81WFQIGRAWpP5TIgm_7s5Em6Jpwk6N4'
-
+let booksAPI = APIkeys.booksKey
+let movieAPI = APIkeys.moviesKey
 document.addEventListener("DOMContentLoaded", () => {
 
     let form = document.getElementById("search-form")
@@ -34,7 +34,7 @@ function search(e){
   if(document.querySelector('input[name="selection"]:checked').value === "movie"){
     e.preventDefault()
     let input = document.getElementById("inp").value
-    fetch(`https://api.themoviedb.org/3/search/movie?api_key=bb90a4dd7b57f36e2474a82d40bd5bf8&language=en-US&query=${input}`)
+    fetch(`https://api.themoviedb.org/3/search/movie?api_key=${movieAPI}&language=en-US&query=${input}`)
       .then(response => response.json())
       .then(data => {
         data.results.forEach(titles => {
@@ -55,14 +55,20 @@ function search(e){
 }
 
 function bookCards(obj){
-  document.getElementById("pop-category-list").remove()
-  document.getElementById("greeting").remove()
-
+  if(document.querySelectorAll(".card")){
+    document.querySelectorAll(".card").forEach(e => e.remove())
+  }
+  document.getElementById("inp").value = ""
+  if(document.getElementById("greeting")){
+    document.getElementById("pop-category-list").remove()
+    document.getElementById("greeting").remove()      
+  }
   obj.forEach(book => {
     let newContent = document.createElement("div")
     newContent.classList.add("card")
     newContent.style.display = "flex"
-
+    console.log(book.volumeInfo.imageLinks.thumbnail)
+    console.log(obj)
     newContent.innerHTML = `
     <div class='card_left'>
     <img src='${book.volumeInfo.imageLinks.thumbnail}'>
@@ -133,7 +139,6 @@ function addTitles(obj){
         `
         document.querySelector("body").append(newContent)
     })
-       
 }
 
 
