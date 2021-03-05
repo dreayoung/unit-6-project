@@ -1,16 +1,12 @@
 let booksAPI = 'AIzaSyCQ81WFQIGRAWpP5TIgm_7s5Em6Jpwk6N4'
 
 document.addEventListener("DOMContentLoaded", () => {
+  
 
     let form = document.getElementById("search-form")
     form.addEventListener("submit", search)
     
 })
-
-function bookSearch(e){
-  e.preventDefault()
-  let selected = document.getElementById("book-search").value
-}
 
 function popAnime(obj){
     let anime = document.getElementById("pop-anime-img")
@@ -18,6 +14,8 @@ function popAnime(obj){
 }
 
 function search(e){
+e.preventDefault()
+
   if(document.querySelector('input[name="selection"]:checked').value === "anime"){
       e.preventDefault()
       let input = document.getElementById("inp").value
@@ -41,7 +39,7 @@ function search(e){
             // console.log(data.items[0])
         })
   }
-  if(document.querySelector('input[name="selection"]:checked').value === ""){
+  else if(document.querySelector('input[name="selection"]:checked').value === null){
     e.preventDefault()
     console.log("Please Select Type of Search")
   }

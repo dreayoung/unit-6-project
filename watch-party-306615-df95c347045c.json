@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "watch-party-306615",
+  "private_key_id": "df95c347045c6938cd76ac763bcac56331d9582f",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC+hC97IohJxg4j\nvlYlCn1CNCsbhY1r/tTEUlKJce37F0Ine6PdQQyyshzy30Xnp+3vYThZJB9aQLqE\nQeWSOwyipAkbVWKnWvJOsEOnSUlmWuZJk8SH+ErmFI5RYytO1PHECktNeJ6Bsbx/\nGsOy9aG7CANj6cF7xlP4iW/o6WpngOD896Ia5UG5fTvDHUmMX8AHZJ0zBlXItPa5\nmeBiRQil6GSP3GuyPKf7kwW4CIplq6oAwW/keEBt6nRi0OR+AZwwsNhzBwMUrMyL\nKIQltlejPefu/gKZwXZ8zNGJHsEr11aaZZu3IwEj58qSX6sIeCBgLtqgbIx5t6T8\nV5CxmwrrAgMBAAECggEAOOc1YVNenp5TwdRLWZPo9rmrOHSq2VtLRHoMIfZP7OO1\nBCL3PhH8T3FImTgb4oWzWQDSOjnCTYwwyWj/Py545ykUeUAHD9Jnth4KjvAiRrqW\ntto2ZKBCCreQDHoQyOJsda/XbwO8YCNsmBAv7IdWL41EqfZ7LlN96ClwrgHtoI0H\ncDAou1LJYdofm+q3hFy9rWtQPQEnQ7Lqo6TZi0xTK+AACGjcv0Gmu4xZrPd2DBvs\nHObvpPG9TOoY4sK9mR5a2LBZFcmKpGj+dnQfsmxzwuTa0xAjzBZ8AEdRK1cpeC2Q\nrNn7qwMNn7u/dYY+DYkSZGRGIiU8sIA+GymyQLYSPQKBgQDiErGz9d28b+APlVy2\n6vpku5y34FgZwaT+w94MLsWM3V3YpV9Q/DwucrdlIx6z/DPnzMA2xycO3ZusF93S\nbHfo5qJ8aXU1g/7bKCpeaCnabN9p3ItnZDe9cEFOwiJlEqG2mDRWV/U8cWs/Ru9e\n/nGzNwzK6KHmOwmEcdOLnlf51QKBgQDXvIYyoQslrWGYXIQI0vItEaKWisLyZ9Nu\neV90cLtlNSxgvUWk3i+ikKHAzWWErbk5sdzRuDKeucsS9VMZckxAsM2APiLIYVj3\n/exJgJN6HWa3QE6XNEdehkeTnQvLaNKjRCGBQdJgNp4dCqPPqwKTaJEfGVgIqybo\n6FC/aJ6RvwKBgDHfoehro0FBBRMrBkssR5UVdptyGL2F5Np3Z3MUlmxfIab7xK1f\nF/+/OwpK1ykpyGGo3/a1tL4o0YEDuuIDH+j3iH0d3sexmPXMRJyTKjiPsDHwf6iN\niWZ3b1Dqrx/RHm/j4Bf0S5vMAbbx9TjltTuuN1pEPANInu7jFaJFim8JAoGAQx7O\nidX9B93nrWWrVqt62XbRJRFLEewnpglxH2MripN+mSKKFn9iRqvFB51f5mW+aSrj\nTwSGC0g23FEjZ5leDAp2BV5PqBRRf+aqqzurpqSbHoyNZxHG2qvgfRaxYrncPxul\naPe3omOb0eFLkgLcrEwuSoSyFRBa7L/Kz6KXIzUCgYBVygh6yrBn1d1i7fP1Uegg\nfPppkJAHGRs2NoNkQpI2JuOmfzuWRbzzDDhmEnu2EHO5JciFNojtMZDLUxRAwz1y\nntiJnka4PLy8UFT/o60eBUGuDQmh7+uShW1cSdrPaeDwwVwBXQla167v7ufgBzD3\n1K/whP0wZ7Q1y6cj3vtlYg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "testing-watch-party-translator@watch-party-306615.iam.gserviceaccount.com",
+  "client_id": "108094638475096224470",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/testing-watch-party-translator%40watch-party-306615.iam.gserviceaccount.com"
+}

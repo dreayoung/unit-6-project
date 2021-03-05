@@ -1,0 +1,23 @@
+{
+  "name": "unit-6-project",
+  "version": "1.0.0",
+  "description": "## Directions Congratulations! You've made it to another milestone! You've worked hard to develop an understanding of HTTP, Promises, XHR, and the Fetch API and now your grasp of AJAX is sound enough for you to build another really cool project!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dreayoung/unit-6-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dreayoung/unit-6-project/issues"
+  },
+  "homepage": "https://github.com/dreayoung/unit-6-project#readme",
+  "dependencies": {
+    "@google-cloud/translate": "^6.1.0",
+    "dotenv": "^8.2.0"
+  }
+}

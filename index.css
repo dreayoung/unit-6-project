@@ -4,6 +4,13 @@
   box-sizing: border-box;
 }
 
+body.en :lang(it) {
+  display: none;
+}
+body.it :lang(en) {
+  display: none;
+}
+
 body {
   margin: 0;
   height: 100%;
