@@ -1,5 +1,6 @@
 let booksAPI = APIkeys.booksKey
 let movieAPI = APIkeys.moviesKey
+let sourcesAPI = APIkeys.sourcesKey
 document.addEventListener("DOMContentLoaded", () => {
 
   let form = document.getElementById("search-form")
@@ -7,11 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // let filterButton = document.getElementById("filters")
   // form.addEventListener("click", showFilters)
-  
-  let closeButton = document.getElementById("modal-close")
-  closeButton.addEventListener("click", close)
-  console.log("test", closeButton)
-
 })
 
 function bookSearch(e){
@@ -192,26 +188,45 @@ function movieCards(obj){
 }
 
 function getId(e){
-  let ul = document.getElementById("listOfSources")
-  while(ul.firstChild) ul.removeChild(ul.firstChild)
-  let name = e.currentTarget.parentNode.parentNode.parentNode.querySelector("h1").innerText
-  fetch(`https://api.watchmode.com/v1/search/?apiKey=X70LNJKbgAnhP8o5xOp8d4HxqsozDdmxGWhBBXYd&search_field=name&search_value=${name}`)
+  let thing = e.currentTarget
+  let name = thing.parentNode.parentNode.parentNode.querySelector("h1").innerText
+  fetch(`https://api.watchmode.com/v1/search/?apiKey=${sourcesAPI}&search_field=name&search_value=${name}`)
     .then(response => response.json())
     .then(data => {
+      makeModal(thing)
       sources(data)
     })
-    document.getElementById("modal-holder").style.display = "block"
-    e.currentTarget.parentNode.parentNode.parentNode.parentNode.append(document.getElementById("modal-holder"))
+}
+
+function makeModal(thing){
+  if (document.getElementById("modal-holder")) close()
+  let modalHolder = document.createElement("div")
+  modalHolder.id = "modal-holder"
+  modalHolder.innerHTML = `
+    <div id="modal">
+        <p>Here are some Sources</p>
+        <ul id="listOfSources">
+        </ul>
+        <button id="modal-close">
+            Close me
+        </button>
+    </div>
+  `
+  document.body.append(modalHolder)
+  let closeButton = document.getElementById("modal-close")
+  closeButton.addEventListener("click", close)
+  thing.parentNode.parentNode.parentNode.parentNode.append(document.getElementById("modal-holder"))
 }
 
 function sources(obj){
-  fetch(`https://api.watchmode.com/v1/title/${obj.title_results[0].id}/sources/?apiKey=X70LNJKbgAnhP8o5xOp8d4HxqsozDdmxGWhBBXYd&regions=US`)
+  fetch(`https://api.watchmode.com/v1/title/${obj.title_results[0].id}/sources/?apiKey=${sourcesAPI}&regions=US`)
     .then(response => response.json())
     .then(data => {
       displaySources(data)})
 }
 
 function displaySources(data){
+
   let sourcesobj = {
     203: "Netflix",
     157: "Hulu",
@@ -248,7 +263,7 @@ function displaySources(data){
 
 function close(){
   console.log("test")
-  document.getElementById("modal-holder").style.display = "none"
+  document.getElementById("modal-holder").remove()
 }
 
 
