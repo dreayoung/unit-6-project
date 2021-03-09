@@ -1,11 +1,14 @@
 let booksAPI = APIkeys.booksKey
 let movieAPI = APIkeys.moviesKey
+let sourcesAPI = APIkeys.sourcesKey
 document.addEventListener("DOMContentLoaded", () => {
   
 
-    let form = document.getElementById("search-form")
-    form.addEventListener("submit", search)
-    
+  let form = document.getElementById("search-form")
+  form.addEventListener("submit", search)
+
+  // let filterButton = document.getElementById("filters")
+  // form.addEventListener("click", showFilters)
 })
 
 function popAnime(obj){
@@ -25,8 +28,9 @@ function search(e){
           .then(response => response.json())
           .then(data => {
               animeCards(data.results)
+              console.log(data)
           })
-  } 
+  }
   if(document.querySelector('input[name="selection"]:checked').value === "movie"){
     e.preventDefault()
     let input = document.getElementById("inp").value
@@ -34,6 +38,7 @@ function search(e){
       .then(response => response.json())
       .then(data => {
         movieCards(data.results)
+        console.log(data)
       })
   }
   if(document.querySelector('input[name="selection"]:checked').value === "book"){
@@ -43,12 +48,12 @@ function search(e){
         .then(response => response.json())
         .then(data => {
             bookCards(data.items)
+            console.log(data)
         })
   }
 }
 
 function bookCards(obj){
-  console.log(obj)
   if(document.querySelectorAll(".card")){
     document.querySelectorAll(".card").forEach(e => e.remove())
   }
@@ -58,19 +63,39 @@ function bookCards(obj){
     document.getElementById("greeting").remove()      
   }
 
-  let newContent = document.createElement("div")
-  let listDiv = document.createElement("div")
-  listDiv.classList.add("list-th")
-  newContent.classList.add("container")
-
-  document.querySelector("body").append(newContent)
-  newContent.appendChild(listDiv)
-
-
+  obj.forEach(book => {
+    let newContent = document.createElement("div")
+    newContent.style.display = "flex"
+    newContent.style.justifyContent = "center" 
+    newContent.classList.add("card")
+    newContent.style.margin = "15px"
+    newContent.innerHTML = `
+    <div class='card_left'>
+    <img src='${book.volumeInfo.imageLinks.thumbnail}'>
+  </div>
+  <div class='card_right'>
+    <h1>${book.volumeInfo.title}</h1>
+    <div class='card_right__details'>
+      <ul>
+        <li>Categories: ${book.volumeInfo.categories}</li>
+        <li>Ratings: ${book.volumeInfo.averageRating}</li>
+        <li>Author: ${book.volumeInfo.authors}</li>
+      </ul>
+      <div class='card_right__rating'>
+      </div>
+      <div class='card_right__review'>
+        <p>${book.volumeInfo.description}</p>
+        <a href='https://openlibrary.org/search?q=${book.volumeInfo.title}&mode=everything' target='_blank'>Read more</a>
+      </div>
+    </div>
+  </div>
+  <br>
+    `
+    document.querySelector("body").append(newContent)
+  });
 }
 
 function animeCards(obj){
-    console.log(obj)
     if(document.querySelectorAll(".card")){
       document.querySelectorAll(".card").forEach(e => e.remove())
     }
@@ -104,16 +129,19 @@ function animeCards(obj){
             </div>
             <div class='card_right__button'>
               <a href='https://www.youtube.com/results?search_query=${item.title}+trailer' target='_blank'>WATCH TRAILER</a>
+              <button class="sources-button">Click for Sources</button>
             </div>
           </div>
         </div>
           `
         document.querySelector("body").append(newContent)
+        document.querySelectorAll(".sources-button").forEach(button => {
+        button.addEventListener("click", getId)
+        })
     })
 }
 
 function movieCards(obj){
-  console.log(obj)
   if(document.querySelectorAll(".card")){
     document.querySelectorAll(".card").forEach(e => e.remove())
   }
@@ -123,7 +151,6 @@ function movieCards(obj){
     document.getElementById("greeting").remove()      
   }
   obj.forEach(item => {
-    console.log(item.original_title)
       let newContent = document.createElement("div")
       newContent.style.display = "flex"
       newContent.style.justifyContent = "center" 
@@ -145,10 +172,103 @@ function movieCards(obj){
         </div>          
           <div class='card_right__button'>
             <a href='https://www.youtube.com/results?search_query=${item.original_title}+trailer' target='_blank'>WATCH TRAILER</a>
+            <button class="sources-button">Click for Sources</button>
           </div>
         </div>
       </div>
         `
       document.querySelector("body").append(newContent)
+      document.querySelectorAll(".sources-button").forEach(button => {
+      button.addEventListener("click", getId)
+      })
   })
 }
+
+function getId(e){
+  let thing = e.currentTarget
+  let name = thing.parentNode.parentNode.parentNode.querySelector("h1").innerText
+  fetch(`https://api.watchmode.com/v1/search/?apiKey=${sourcesAPI}&search_field=name&search_value=${name}`)
+    .then(response => response.json())
+    .then(data => {
+      makeModal(thing)
+      sources(data)
+    })
+}
+
+function makeModal(thing){
+  if (document.getElementById("modal-holder")) close()
+  let modalHolder = document.createElement("div")
+  modalHolder.id = "modal-holder"
+  modalHolder.innerHTML = `
+    <div id="modal">
+        <p>Here are some Sources</p>
+        <ul id="listOfSources">
+        </ul>
+        <button id="modal-close">
+            Close me
+        </button>
+    </div>
+  `
+  document.body.append(modalHolder)
+  let closeButton = document.getElementById("modal-close")
+  closeButton.addEventListener("click", close)
+  thing.parentNode.parentNode.parentNode.parentNode.append(document.getElementById("modal-holder"))
+}
+
+function sources(obj){
+  fetch(`https://api.watchmode.com/v1/title/${obj.title_results[0].id}/sources/?apiKey=${sourcesAPI}&regions=US`)
+    .then(response => response.json())
+    .then(data => {
+      displaySources(data)})
+}
+
+function displaySources(data){
+
+  let sourcesobj = {
+    203: "Netflix",
+    157: "Hulu",
+    26: "Amazon Prime",
+    387: "HBO Max",
+    372: "Disney+",
+    80: "Crunchyroll Premium",
+    380: "Funimation",
+    345: "Youtube",
+    140: "Googleplay Store",
+    24: "Amazon Purchase",
+    344: "Youtube Purchase"
+  }
+  let uniqueURLs = {}
+  for(let i = 0; i < data.length; i++){
+    if(data[i].source_id in sourcesobj){
+      if(!(data[i].web_url in uniqueURLs)){
+        uniqueURLs[data[i].web_url] = true
+      }
+    }
+  }
+  for(let j in uniqueURLs){
+    let li = document.createElement("li")
+    let anchor = document.createElement("a")
+    anchor.className = "sourcesLi"
+    li.innerText = j
+    anchor.href = j
+    anchor.target = "_blank"
+    anchor.append(li)
+    document.getElementById("modal").querySelector("ul").append(anchor)
+  }
+}
+
+
+function close(){
+  console.log("test")
+  document.getElementById("modal-holder").remove()
+}
+
+
+// function showFilters(){
+//   document.getElementById(){
+
+//   }
+// }
+// 20210308142649
+// https://api.watchmode.com/v1/sources/?apiKey=X70LNJKbgAnhP8o5xOp8d4HxqsozDdmxGWhBBXYd&regions=US
+

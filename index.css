@@ -51,8 +51,14 @@ body {
   }
 
 .column h4 {
+    color: black;
     text-align: center;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Luckiest Guy';
+    font-weight: bold;
+}
+
+#results {
+  font-family: 'Amatic SC';
 }
   
   /* Clearfix (clear floats) */
@@ -78,7 +84,7 @@ body {
 }
 
 .header a:hover {
-  background-color: #5579BF;
+  background-color: #6a4e75;
   color: white;
   padding-left: 30px;
   padding-right: 30px;
@@ -108,7 +114,7 @@ body {
 @media screen and (max-width: 500px) {
   .header a {
     float: none;
-    display: block;
+    /* display: block; */
     text-align: left;
   }
   
@@ -118,7 +124,7 @@ body {
 }
 
 .row h4 {
-    font-family: 'Lobster';
+    font-family: 'Luckiest Guy';
 }
 
 /* ------------- search */
@@ -131,12 +137,16 @@ body {
 #greeting h1 {
     font-family: 'Luckiest Guy';
     font-size: 4rem;
+    color: black;
 }
 
 #greeting h4 {
-   font-family: 'Lobster';
+   font-family: 'Amatic SC';
 }
- 
+ #tyoe-form {
+  font-family: 'Amatic SC';
+ }
+
   #filter {
     position: relative;
   }
@@ -293,8 +303,8 @@ body {
 }
 .card_right__review p {
   color: white;
-  font-family:'Amatic SC';
-  font-size: 11px;
+  font-family:'Luckiest Guy';
+  font-size: 8px;
   padding: 0 40px 0 40px;
   letter-spacing: 1px;
   margin: 10px 0 10px 0;
@@ -328,6 +338,32 @@ body {
   transition-duration: 0.5s;
 }
 .card_right__button a:hover {
+  color: #000000;
+  background-color: #ffda00;
+  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/343086/rFQ5dHA.png);
+  background-size: 12px 12px;
+  background-repeat: no-repeat;
+  background-position: 10% 50%;
+  cursor: pointer;
+  transition-property: all;
+  transition-duration: 0.5s;
+}
+.sources-button {
+  color: #ffda00;
+  text-decoration: none;
+  font-family: "Luckiest Guy", sans-serif;
+  border: 2px solid #ffda00;
+  padding: 10px 10px 10px 40px;
+  font-size: 12px;
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/343086/COMdoWZ.png);
+  background-size: 12px 12px;
+  background-repeat: no-repeat;
+  background-position: 7% 50%;
+  border-radius: 5px;
+  transition-property: all;
+  transition-duration: 0.5s;
+}
+.sources-button:hover{
   color: #000000;
   background-color: #ffda00;
   background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/343086/rFQ5dHA.png);
@@ -422,7 +458,7 @@ other
 **********************************/
 
 h1 {
-  color: gray;
+  color: #6a4e75;
   text-align: center;
   font-size: 50px;
   margin-bottom: -3px;
@@ -455,5 +491,25 @@ animate it */
 /* remove button? */
 #large-th:target .book {
   height: 390px;
+#filters{
+  width : 100px;
+}
+#filter-holder{
+  display: flex;
+  justify-content: center;
 }
 
+#modal-holder{
+  padding: 10px;
+  border: 2px solid black;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* display: none */
+}
+
+#modal-close{
+  float: right;  
+}
