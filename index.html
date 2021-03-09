@@ -31,6 +31,9 @@
             <input type="radio" name="selection" value="book"><span>Book</span>
         </form>
     </div>
+    <!-- <div id=filter-holder>
+        <button id="filters" >Filters</button>
+    </div> -->
     <label for="inp" class="inp">
         <form id="search-form">
             <input type="text" id="inp" placeholder="Type here..." pattern=".{4,}" required>
@@ -43,6 +46,16 @@
             <input type="button" value="Press Enter for Results">
         </form>
     </label>
+    <div id=modal-holder>
+        <div id="modal">
+            <p>Here are some Sources</p>
+            <ul id="listOfSources">
+            </ul>
+            <button id="modal-close">
+                Close me
+            </button>
+        </div>
+    </div>
 <br>
     <div class="row" id="pop-category-list">
         <div class="column">
