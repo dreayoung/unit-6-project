@@ -38,7 +38,7 @@ function search(e){
               animeCards(data.results)
               console.log(data)
           })
-  } 
+  }
   if(document.querySelector('input[name="selection"]:checked').value === "movie"){
     e.preventDefault()
     let input = document.getElementById("inp").value
@@ -233,8 +233,6 @@ function displaySources(data){
       }
     }
   }
-  if(document.getElementById("modal-holder").style.display === "block"){
-  }
   for(let j in uniqueURLs){
     let li = document.createElement("li")
     let anchor = document.createElement("a")
@@ -249,9 +247,8 @@ function displaySources(data){
 
 
 function close(){
-    console.log("hey")
-  let ul = document.getElementById("listOfSources")
-  while(ul.firstChild) ul.removeChild(ul.firstChild)
+  console.log("test")
+  document.getElementById("modal-holder").style.display = "none"
 }
 
 
