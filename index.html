@@ -6,12 +6,13 @@
     <title>Watch Party</title>
     <link rel="shortcut icon" href="/Users/andreayoung/Development/unit-6/unit-6-project/images/circle-abstract-logo-png.png" type="image/x-icon">
     <link rel="stylesheet" href="index.css">
+    <script src="secret.js"></script>
     <script src="index.js"></script>
 </head>
 <body>
-    <div class="header">
+     <div class="header">
         <a href="index.html" class="logo">
-            <img src="/Users/andreayoung/Development/unit-6/unit-6-project/images/circle-abstract-logo-png.png">
+            <img src="https://static.vecteezy.com/system/resources/previews/001/192/261/non_2x/circle-abstract-logo-png.png">
         </a> 
         <div class="header-right">
             <a href="#none">D R E A</a>
@@ -32,32 +33,66 @@
     </div>
     <label for="inp" class="inp">
         <form id="search-form">
-            <input type="text" id="inp" placeholder="Type here..." pattern=".{4,}" required>
+            <input type="text" id="inp" placeholder="Type here..." pattern=".{2,}" required>
                 <svg width="280px" height="18px" viewBox="0 0 280 18" class="border">
                     <path d="M0,12 L223.166144,12 C217.241379,12 217.899687,12 225.141066,12 C236.003135,12 241.9279,12 249.827586,12 C257.727273,12 264.639498,12 274.514107,12 C281.097179,12 281.755486,12 276.489028,12"></path>
                 </svg>
             <svg width="14px" height="12px" viewBox="0 0 14 12" class="check">
                 <path d="M1 7 5.5 11 L13 1"></path>
             </svg>
-            <input type="button" value="press enter for results">
+            <input type="button" value="Press Enter for Results">
         </form>
     </label>
 <br>
+   <!-- <div class="container">
+        <br>
+        <div class="choose">
+          <a href="#list-th"><i class="fa fa-th-list" aria-hidden="true"></i>H</a>
+          <a href="#large-th"><i class="fa fa-th-large" aria-hidden="true"></i>L</a>
+        </div>
+        <div id="list-th">
+          <div class="book read">
+            <div class="cover">
+              <img src="https://s-media-cache-ak0.pinimg.com/564x/f9/8e/2d/f98e2d661445620266c0855d418aab71.jpg">
+            </div>
+            <div class="description">
+              <p class="title">Frankenstein<br>
+                <span class="author">Mary Shelley</span></p>
+            </div>
+          </div>
+          <div class="book read">
+            <div class="cover">
+              <img src="https://alysbcohen.files.wordpress.com/2015/01/little-princess-book-cover.jpg">
+            </div>
+            <div class="description">
+              <p class="title">A Little Princess<br>
+                <span class="author">Frances Hodgson Burnett</span></p>
+            </div>
+          </div>
+          <div class="book read">
+            <div class="cover">
+              <img src="http://www.publishersweekly.com/images/data/ARTICLE_PHOTO/photo/000/028/28129-1.JPG">
+            </div>
+            <div class="description">
+              <p class="title">Roughing It</br>
+                <span class="author">Mark Twain</span></p>
+            </div>
+          </div>
+      </div> -->
+
     <div class="row" id="pop-category-list">
         <div class="column">
-            <h4 id="movie">#1 Movie</h4>
-            <img id="recommended-movie" src="https://cdn.dribbble.com/users/179241/screenshots/3703338/chris-fernandez-spiderman-homecoming-2_1x.png">
+            <h4 id="movie">Movie of the Day</h4>
+            <a href="https://www.youtube.com/results?search_query=avengers%3A+endgame+trailer" target='_blank'><img id="recommended-movie" src="https://image.tmdb.org/t/p/w154//ulzhLuWrPK07P1YkdWQLZnQh1JL.jpg"></a>
         </div>
         <div class="column">
-            <h4 id="anime">#1 Anime</h4>
-            <img id="pop-anime-img" src="https://cdn.dribbble.com/users/179241/screenshots/3706561/chris-fernandez-new-dad-8_1x.png">
+            <h4 id="anime">Anime of the Day</h4>
+            <a href="https://www.youtube.com/results?search_query=naruto+trailer" target='_blank'><img id="pop-anime-img" src="https://cdn.myanimelist.net/images/anime/13/17405.jpg?s=59241469eb470604a792add6fbe7cce6"></a>
         </div>
         <div class="column">
-            <h4 id="book">#1 Book</h4>
-            <img id="recommended-book" src="https://cdn.dribbble.com/users/179241/screenshots/3439615/chris-fernandez-screwball-3_1x.png">
+            <h4 id="book">Book of the Day</h4>
+            <a href="https://openlibrary.org/search?q=atomic+habits&mode=everything" target='_blank'><img id="recommended-book" src="http://books.google.com/books/content?id=XfFvDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"></a>
         </div>
-    </div>
-
-    <script src="translate.js"></script>
+    </div> 
 </body>
 </html>
