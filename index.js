@@ -88,7 +88,7 @@ function bookCards(obj){
       </div>
       <div class='card_right__review'>
         <p>${book.volumeInfo.description}</p>
-        <a href='https://openlibrary.org/search?q=${book.volumeInfo.title}&mode=everything' target='_blank'>Read more</a>
+        <a href='https://www.barnesandnoble.com/s/${book.volumeInfo.title}' target='_blank'>Read more</a>
       </div>
     </div>
   </div>
@@ -188,17 +188,17 @@ function movieCards(obj){
 }
 
 function getId(e){
-  let thing = e.currentTarget
-  let name = thing.parentNode.parentNode.parentNode.querySelector("h1").innerText
+  let card = e.currentTarget
+  let name = card.parentNode.parentNode.parentNode.querySelector("h1").innerText
   fetch(`https://api.watchmode.com/v1/search/?apiKey=${sourcesAPI}&search_field=name&search_value=${name}`)
     .then(response => response.json())
     .then(data => {
-      makeModal(thing)
+      makeModal(card)
       sources(data)
     })
 }
 
-function makeModal(thing){
+function makeModal(card){
   if (document.getElementById("modal-holder")) close()
   let modalHolder = document.createElement("div")
   modalHolder.id = "modal-holder"
@@ -215,18 +215,18 @@ function makeModal(thing){
   document.body.append(modalHolder)
   let closeButton = document.getElementById("modal-close")
   closeButton.addEventListener("click", close)
-  thing.parentNode.parentNode.parentNode.parentNode.append(document.getElementById("modal-holder"))
+  card.parentNode.parentNode.parentNode.parentNode.append(document.getElementById("modal-holder"))
 }
 
 function sources(obj){
   fetch(`https://api.watchmode.com/v1/title/${obj.title_results[0].id}/sources/?apiKey=${sourcesAPI}&regions=US`)
     .then(response => response.json())
     .then(data => {
-      displaySources(data)})
+      displaySources(data)
+    }) 
 }
 
 function displaySources(data){
-
   let sourcesobj = {
     203: "Netflix",
     157: "Hulu",
@@ -238,7 +238,9 @@ function displaySources(data){
     345: "Youtube",
     140: "Googleplay Store",
     24: "Amazon Purchase",
-    344: "Youtube Purchase"
+    344: "Youtube Purchase",
+    444: "Paramount Plus",
+    420: "HiDive"
   }
   let uniqueURLs = {}
   for(let i = 0; i < data.length; i++){
@@ -257,6 +259,11 @@ function displaySources(data){
     anchor.target = "_blank"
     anchor.append(li)
     document.getElementById("modal").querySelector("ul").append(anchor)
+    // if(!document.getElementById("modal").querySelector("ul").hasChildNodes()){
+    //   let li = document.createElement("li")
+    //   li.innerText = "Oops something went wrong"
+    //   document.getElementById("modal").querySelector("ul").append(li)
+    // }
   }
 }
 
@@ -275,3 +282,5 @@ function close(){
 // 20210308142649
 // https://api.watchmode.com/v1/sources/?apiKey=X70LNJKbgAnhP8o5xOp8d4HxqsozDdmxGWhBBXYd&regions=US
 
+// 20210309090307
+// https://api.watchmode.com/v1/sources/?apiKey=X70LNJKbgAnhP8o5xOp8d4HxqsozDdmxGWhBBXYd&regions=US
