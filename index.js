@@ -2,6 +2,7 @@ let booksAPI = APIkeys.booksKey
 let movieAPI = APIkeys.moviesKey
 let sourcesAPI = APIkeys.sourcesKey
 document.addEventListener("DOMContentLoaded", () => {
+  
 
   let form = document.getElementById("search-form")
   form.addEventListener("submit", search)
@@ -9,11 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // let filterButton = document.getElementById("filters")
   // form.addEventListener("click", showFilters)
 })
-
-function bookSearch(e){
-  e.preventDefault()
-  let selected = document.getElementById("book-search").value
-}
 
 function popAnime(obj){
     let anime = document.getElementById("pop-anime-img")
@@ -66,6 +62,7 @@ function bookCards(obj){
     document.getElementById("pop-category-list").remove()
     document.getElementById("greeting").remove()      
   }
+
   obj.forEach(book => {
     let newContent = document.createElement("div")
     newContent.style.display = "flex"
@@ -95,7 +92,7 @@ function bookCards(obj){
   <br>
     `
     document.querySelector("body").append(newContent)
-})
+  });
 }
 
 function animeCards(obj){

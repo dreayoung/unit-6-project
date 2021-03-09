@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" href="qa-html-language-declarations.es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,13 +10,13 @@
     <script src="index.js"></script>
 </head>
 <body>
-    <div class="header">
+     <div class="header">
         <a href="index.html" class="logo">
             <img src="https://static.vecteezy.com/system/resources/previews/001/192/261/non_2x/circle-abstract-logo-png.png">
         </a> 
         <div class="header-right">
-            <a href="#none">D R E A</a>
-            <a href="#none">J A R R I T</a>
+            <a href="https://www.linkedin.com/in/andrea-young-770038167/" target='_blank'>D R E A</a>
+            <a href="https://www.linkedin.com/in/jarrit-alicea-01514b203/" target='_blank'>J A R R I T</a>
         </div>
     </div>
 
@@ -36,14 +36,14 @@
     </div> -->
     <label for="inp" class="inp">
         <form id="search-form">
-            <input type="text" id="inp" placeholder="Type here..." pattern=".{4,}" required>
+            <input type="text" id="inp" placeholder="Type here..." pattern=".{2,}" required>
                 <svg width="280px" height="18px" viewBox="0 0 280 18" class="border">
                     <path d="M0,12 L223.166144,12 C217.241379,12 217.899687,12 225.141066,12 C236.003135,12 241.9279,12 249.827586,12 C257.727273,12 264.639498,12 274.514107,12 C281.097179,12 281.755486,12 276.489028,12"></path>
                 </svg>
             <svg width="14px" height="12px" viewBox="0 0 14 12" class="check">
                 <path d="M1 7 5.5 11 L13 1"></path>
             </svg>
-            <input type="button" value="Press Enter for Results">
+            <input type="button" id="results" value="Press Enter for Results">
         </form>
     </label>
     <!-- <div id=modal-holder>
@@ -57,6 +57,42 @@
         </div>
     </div> -->
 <br>
+   <!-- <div class="container">
+        <br>
+        <div class="choose">
+          <a href="#list-th"><i class="fa fa-th-list" aria-hidden="true"></i>H</a>
+          <a href="#large-th"><i class="fa fa-th-large" aria-hidden="true"></i>L</a>
+        </div>
+        <div id="list-th">
+          <div class="book read">
+            <div class="cover">
+              <img src="https://s-media-cache-ak0.pinimg.com/564x/f9/8e/2d/f98e2d661445620266c0855d418aab71.jpg">
+            </div>
+            <div class="description">
+              <p class="title">Frankenstein<br>
+                <span class="author">Mary Shelley</span></p>
+            </div>
+          </div>
+          <div class="book read">
+            <div class="cover">
+              <img src="https://alysbcohen.files.wordpress.com/2015/01/little-princess-book-cover.jpg">
+            </div>
+            <div class="description">
+              <p class="title">A Little Princess<br>
+                <span class="author">Frances Hodgson Burnett</span></p>
+            </div>
+          </div>
+          <div class="book read">
+            <div class="cover">
+              <img src="http://www.publishersweekly.com/images/data/ARTICLE_PHOTO/photo/000/028/28129-1.JPG">
+            </div>
+            <div class="description">
+              <p class="title">Roughing It</br>
+                <span class="author">Mark Twain</span></p>
+            </div>
+          </div>
+      </div> -->
+
     <div class="row" id="pop-category-list">
         <div class="column">
             <h4 id="movie">Movie of the Day</h4>
@@ -70,8 +106,6 @@
             <h4 id="book">Book of the Day</h4>
             <a href="https://openlibrary.org/search?q=atomic+habits&mode=everything" target='_blank'><img id="recommended-book" src="http://books.google.com/books/content?id=XfFvDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"></a>
         </div>
-    </div>
-
-    
+    </div> 
 </body>
 </html>
