@@ -304,7 +304,7 @@ body {
 .card_right__review p {
   color: white;
   font-family:'Luckiest Guy';
-  font-size: 8px;
+  font-size: 11px;
   padding: 0 40px 0 40px;
   letter-spacing: 1px;
   margin: 10px 0 10px 0;
@@ -449,8 +449,8 @@ Book stuff
     margin: 0 auto;
     margin-top: 50px;
   }
-  .cover {
-  }
+  /* .cover {
+  } */
 }
 
 /*********************************
@@ -491,13 +491,14 @@ animate it */
 /* remove button? */
 #large-th:target .book {
   height: 390px;
-#filters{
-  width : 100px;
 }
-#filter-holder{
+/* #filters{
+  width : 100px;
+} */
+/* #filter-holder{
   display: flex;
   justify-content: center;
-}
+} */
 
 #modal-holder{
   padding: 10px;
